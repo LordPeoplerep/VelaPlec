@@ -11,122 +11,92 @@
         padding: 0;
         background: #f4f4f4;
         color: #333;
-        line-height: 1.6;
+        overflow-x: hidden;
     }
-
     header {
-        background: url('header-bg.jpg') no-repeat center center/cover;
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('background-header.jpg') no-repeat center center;
+        background-size: cover;
         color: white;
         padding: 40px 20px;
         text-align: center;
     }
-
     header img {
-        max-height: 80px;
+        max-height: 100px;
+        display: block;
+        margin: 0 auto;
     }
-
     nav {
         background: #0055a5;
         text-align: center;
-        padding: 10px;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
+        padding: 15px 0;
     }
-
     nav a {
         color: white;
         text-decoration: none;
-        margin: 0 15px;
+        margin: 0 20px;
         font-weight: bold;
         font-size: 16px;
     }
-
     nav a:hover {
         text-decoration: underline;
     }
-
     section {
         padding: 60px 40px;
+        margin: 0 auto;
         max-width: 1400px;
-        margin: auto;
     }
-
-    section h2 {
+    section:nth-child(even) {
+        background: #f9f9f9;
+    }
+    h2 {
         color: #003366;
-        margin-bottom: 20px;
-        text-align: center;
+        border-bottom: 2px solid #0055a5;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
     }
-
     .grid {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
     }
-
     .card {
         flex: 1 1 calc(33% - 20px);
-        background: rgba(255, 255, 255, 0.95);
-        padding: 20px;
+        background: white;
+        padding: 25px;
         border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        min-width: 300px;
     }
-
     .card h3 {
         color: #0055a5;
-        margin-bottom: 10px;
     }
-
     footer {
         text-align: center;
-        padding: 20px;
+        padding: 25px;
         background: #003366;
         color: white;
+        font-size: 14px;
     }
-
     a {
         color: #0055a5;
     }
-
-    /* Background styles for sections */
-    #about {
-        background: url('about-bg.jpg') no-repeat center center/cover;
-        color: white;
-        padding: 80px 40px;
-    }
-
-    #products {
-        background: url('products-bg.jpg') no-repeat center center/cover;
-        color: white;
-    }
-
-    #subsidiaries {
-        background: url('subsidiaries-bg.jpg') no-repeat center center/cover;
-        color: white;
-    }
-
-    #staff {
-        background: url('staff-bg.jpg') no-repeat center center/cover;
-        color: white;
-    }
-
-    .card p {
-        font-size: 14px;
-    }
-
-    @media screen and (max-width: 1024px) {
-        .card {
-            flex: 1 1 calc(50% - 20px);
+    /* Landscape desktop display adjustments */
+    @media (min-width: 1024px) {
+        section {
+            padding: 80px 60px;
         }
     }
-
-    @media screen and (max-width: 768px) {
-        .card {
-            flex: 1 1 100%;
-        }
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
         nav a {
             display: block;
-            margin: 5px 0;
+            margin: 10px 0;
+        }
+        .grid {
+            flex-direction: column;
+        }
+        .card {
+            width: 100%;
         }
     }
 </style>
@@ -134,7 +104,7 @@
 <body>
 
 <header>
-    <img src="VELA.png" alt="VelaPlex Systems Logo">
+    <img src="Vela.png" alt="VelaPlex Systems Logo">
     <h1>VelaPlex Systems</h1>
     <p>Innovating the Future of AI, Software, and Secure Systems</p>
 </header>
@@ -144,10 +114,11 @@
     <a href="#products">Products</a>
     <a href="#subsidiaries">Subsidiaries & ISBPs</a>
     <a href="#staff">Leadership & Staff</a>
+    <a href="#partners">Strategic Partners</a>
     <a href="#contact">Contact</a>
 </nav>
 
-<section id="about">
+<section id="about" style="background: url('background-about.jpg') no-repeat center center; background-size: cover; color: white;">
     <h2>About VelaPlex Systems</h2>
     <p>VelaPlex Systems is the software and AI division of the Velakoritsu Group (Ticker: VLK), specializing in advanced AI models, blockchain-secured databases, custom programming languages, and secure infrastructure for a wide range of industries.</p>
     <p>Our flagship AI — <strong>VELA</strong> — now supports multi-model operation with APMs, HLMs, and AKMs for advanced reasoning, adaptability, and unmatched performance across industries.</p>
@@ -178,11 +149,11 @@
         </div>
         <div class="card">
             <h3>VelaTrovka</h3>
-            <p>Custom browser with Volna, Haneul, and Soryu programming integration, including VolnaDB and VolnaLedger for blockchain-secured databases.</p>
+            <p>Custom browser with Volna, Haneul, and Soryu integration, including VolnaDB and VolnaLedger for blockchain-secured databases.</p>
         </div>
         <div class="card">
             <h3>SBDS</h3>
-            <p>Secure Blockchain Database System. Blockchain-based secure database for sensitive and mission-critical data storage.</p>
+            <p>Secure Blockchain Database System for sensitive and mission-critical data storage.</p>
         </div>
         <div class="card">
             <h3>DaeMyris</h3>
@@ -191,17 +162,39 @@
     </div>
 </section>
 
-<section id="subsidiaries">
+<section id="subsidiaries" style="background: url('background-subsidiaries.jpg') no-repeat center center; background-size: cover; color: white;">
     <h2>Subsidiaries & ISBPs</h2>
     <div class="grid">
-        <div class="card"><h3>Yukata-Ji Transportation (YKJT)</h3><p>Global logistics and secure transport. Owned by Yuk Ji-Yun.</p></div>
-        <div class="card"><h3>Sip-Jounga Co.</h3><p>Computer parts manufacturing. Owned by Sip Seong-Eon.</p></div>
-        <div class="card"><h3>NeuroWave Systems (NWS)</h3><p>AI acceleration and neural computing. Owned by Yang Tae-Ran.</p></div>
-        <div class="card"><h3>Kōryū EnerTech (KYET)</h3><p>High-end GPUs and energy production. Owned by Okawa Manobu.</p></div>
-        <div class="card"><h3>Hyeonse Games</h3><p>Gaming and VR/AR development. Owned by Nae Chun-Hwa.</p></div>
-        <div class="card"><h3>Cheolbyeok Integrated Security (CBIS)</h3><p>Corporate security solutions. Owned by Ogum Mi-Young.</p></div>
-        <div class="card"><h3>Aurelio Precision Systems (APS)</h3><p>Commercial-grade equipment manufacturing. Owned by Luna Beahan.</p></div>
-        <div class="card"><h3>DaeMyris</h3>
+        <div class="card">
+            <h3>Yukata-Ji Transportation (YKJT)</h3>
+            <p>Global logistics and secure transport. Owned by Yuk Ji-Yun.</p>
+        </div>
+        <div class="card">
+            <h3>Sip-Jounga Co.</h3>
+            <p>Computer parts manufacturing. Owned by Sip Seong-Eon.</p>
+        </div>
+        <div class="card">
+            <h3>NeuroWave Systems (NWS)</h3>
+            <p>AI acceleration and neural computing. Owned by Yang Tae-Ran.</p>
+        </div>
+        <div class="card">
+            <h3>Kōryū EnerTech (KYET)</h3>
+            <p>High-end GPUs and energy production. Owned by Okawa Manobu.</p>
+        </div>
+        <div class="card">
+            <h3>Hyeonse Games</h3>
+            <p>Gaming and VR/AR development. Owned by Nae Chun-Hwa.</p>
+        </div>
+        <div class="card">
+            <h3>Cheolbyeok Integrated Security (CBIS)</h3>
+            <p>Corporate security solutions. Owned by Ogum Mi-Young.</p>
+        </div>
+        <div class="card">
+            <h3>Aurelio Precision Systems (APS)</h3>
+            <p>Commercial-grade equipment manufacturing. Owned by Luna Beahan.</p>
+        </div>
+        <div class="card">
+            <h3>DaeMyris</h3>
             <p><strong>Founders:</strong> Alina Hryhorenko & Eoh Yun-Soo</p>
             <p><strong>Focus:</strong> Secure communications, encrypted storage, blockchain solutions.</p>
             <p><strong>Products:</strong> SolnaraCrypt, ZoryaSo Mail, HanVira Vault, CheonMyr Drive</p>
@@ -222,7 +215,7 @@
         </div>
         <div class="card">
             <h3>Okawa Manobu</h3>
-            <p><strong>Director</strong> — Japanese, 35 years old. GPU & sustainable energy leader.</p>
+            <p><strong>Director</strong> — Japanese, 35 years old. GPU & sustainable energy leader at Kōryū EnerTech.</p>
         </div>
         <div class="card">
             <h3>Sip Seong-Eon</h3>
@@ -230,7 +223,7 @@
         </div>
         <div class="card">
             <h3>Yang Tae-Ran</h3>
-            <p><strong>Chief Software Engineer</strong> — Korean, 34 years old. Leads neural AI and HLM development.</p>
+            <p><strong>Chief Software Engineer</strong> — Korean, 34 years old. Leads neural AI and HLM development at NeuroWave Systems.</p>
         </div>
         <div class="card">
             <h3>Sera Harunobu</h3>
@@ -246,21 +239,43 @@
         </div>
         <div class="card">
             <h3>Luna Beahan</h3>
-            <p><strong>Head of Product Inspection</strong> — Australian, 36 years old. Oversees quality and precision systems at Aurelio Precision Systems (APS).</p>
+            <p><strong>Head of Product Inspection</strong> — Australian, 36 years old. Oversees Aurelio Precision Systems.</p>
         </div>
         <div class="card">
-            <h3>Alina Hryhorenko</h3>
-            <p><strong>CTO of DaeMyris</strong> — Ukrainian, 32 years old. Leads cryptography, backend, and blockchain architecture.</p>
-        </div>
-        <div class="card">
-            <h3>Eoh Yun-Soo</h3>
-            <p><strong>CEO of DaeMyris</strong> — Korean, 29 years old. Leads strategic partnerships, integrations, and product vision for DaeMyris services.</p>
+            <h3>Peoplerep</h3>
+            <p><strong>Founder & CEO</strong> — [Your Nationality], [Your Age]. Visionary founder of VelaPlex Systems and Velakoritsu Group.</p>
         </div>
     </div>
+</section>
+
+<section id="partners">
+    <h2>Strategic Partners</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Kōryū EnerTech Partners</h3>
+            <p>Energy and GPU technology collaborations globally. Key partner of VelaPlex for sustainable AI processing.</p>
+        </div>
+        <div class="card">
+            <h3>NeuroWave Systems</h3>
+            <p>Collaboration in neural AI computing and multi-model integration with VELA.</p>
+        </div>
+        <div class="card">
+            <h3>DaeMyris SecureWorks</h3>
+            <p>Blockchain security partnerships for email, wallet, and drive services under VelaPlex.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: contact@velaplexsystems.com</p>
+    <p>Phone: +1 (555) 987-6543</p>
+    <p>Address: 1250 Innovation Drive, NeoCity, Global Tech District</p>
 </section>
 
 <footer>
     <p>&copy; 2025 VelaPlex Systems | Part of Velakoritsu Group</p>
 </footer>
+
 </body>
 </html>
